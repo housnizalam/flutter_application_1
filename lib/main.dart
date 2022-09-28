@@ -31,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Lamp lamp = Lamp(1);
+  Lamp lamp = Lamp(0);
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text(""),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: lamp.getLight()[0] == true
+                      color: lamp.lampState == "red" ||
+                              lamp.lampState == "redYellow"
                           ? Colors.red
                           : Color.fromARGB(0, 131, 122, 122),
                     ),
@@ -70,7 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text(""),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: lamp.getLight()[1] == true
+                      color: lamp.lampState == "yellow" ||
+                              lamp.lampState == "redYellow"
                           ? Colors.yellow
                           : Color.fromARGB(0, 131, 122, 122),
                     ),
@@ -81,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text(""),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: lamp.getLight()[2] == true
+                      color: lamp.lampState == "green"
                           ? Colors.green
                           : Color.fromARGB(0, 131, 122, 122),
                     ),
