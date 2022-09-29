@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/classes2.dart';
+import 'classes2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Ampel',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -31,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // creating the object
   Lamp lamp = Lamp(0);
 
   @override
@@ -40,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
+        color: Color.fromARGB(255, 185, 233, 233),
         alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -47,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color.fromARGB(255, 108, 108, 110),
                 borderRadius: BorderRadius.circular(30),
               ),
               height: 300,
@@ -59,10 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text(""),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: lamp.lampState == "red" ||
-                              lamp.lampState == "redYellow"
+                      color: lamp.actuellLampState == "red" ||
+                              lamp.actuellLampState == "redYellow"
                           ? Colors.red
-                          : Color.fromARGB(0, 131, 122, 122),
+                          : Colors.black,
                     ),
                     height: 60,
                     width: 60,
@@ -71,10 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text(""),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: lamp.lampState == "yellow" ||
-                              lamp.lampState == "redYellow"
+                      color: lamp.actuellLampState == "yellow" ||
+                              lamp.actuellLampState == "redYellow"
                           ? Colors.yellow
-                          : Color.fromARGB(0, 131, 122, 122),
+                          : Colors.black,
                     ),
                     height: 60,
                     width: 60,
@@ -83,14 +85,35 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text(""),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: lamp.lampState == "green"
+                      color: lamp.actuellLampState == "green"
                           ? Colors.green
-                          : Color.fromARGB(0, 131, 122, 122),
+                          : Colors.black,
                     ),
                     height: 60,
                     width: 60,
                   ),
                 ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 3, 23, 39),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              height: 70,
+              width: 150,
+              child: Container(
+                child: Icon(
+                  Icons.nordic_walking,
+                  size: 50,
+                ),
+                decoration: BoxDecoration(
+                  color: lamp.actuellLampState == "red"
+                      ? Colors.green
+                      : Colors.red,
+                ),
+                height: 60,
+                width: 60,
               ),
             ),
             ElevatedButton(
