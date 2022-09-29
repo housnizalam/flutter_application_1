@@ -49,9 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 108, 108, 110),
-                borderRadius: BorderRadius.circular(30),
-              ),
+                  color: Color.fromARGB(255, 108, 108, 110),
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(color: Colors.black, width: 5)),
               height: 300,
               width: 100,
               child: Column(
@@ -108,6 +108,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   size: 50,
                 ),
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(80),
+                  border: Border.all(color: Colors.black, width: 5),
                   color: lamp.actuellLampState == "red"
                       ? Colors.green
                       : Colors.red,
